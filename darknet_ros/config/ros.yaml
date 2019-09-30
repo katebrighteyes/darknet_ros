@@ -1,7 +1,7 @@
 subscribers:
 
   camera_reading:
-    topic: /camera/image
+    topic: 
     queue_size: 1
 
 actions:
