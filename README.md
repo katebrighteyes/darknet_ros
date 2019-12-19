@@ -3,13 +3,17 @@
 
 # EXERCISE
 
-cd ~/catkin_ws/src
+$ cd ~/catkin_ws/src
 
-git clone https://github.com/katebrighteyes/darknet_ros
+$ git clone https://github.com/katebrighteyes/darknet_ros
+
+$ cd ~/catkin_ws/src/darknet_ros/darknet_ros
 
 # TODO 1.
 
 <config/ros.yaml>
+
+$ vim config/ros.yaml +4
 
 topic: /camera/image_raw
 
@@ -17,13 +21,24 @@ topic: /camera/image_raw
 
 <launch/darknet_ros.launch> 12 line
 
+$ vim launch/darknet_ros.launch +12
+
 default="$(find darknet_ros)/config/ros.yaml"/>
 
 # TODO 3.
 
 <src/YoloObjectDetector.cpp> 158 line
 
+vim src/YoloObjectDetector.cpp +158
+
   imageSubscriber_ = imageTransport_.subscribe(cameraTopicName, cameraQueueSize,                      &YoloObjectDetector::cameraCallback, this);
+
+# BUILD
+
+$ cd ~/catkin_ws/
+
+$ catkin_make
+  
 
 _____________________________
 # TEST
