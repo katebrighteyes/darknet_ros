@@ -156,7 +156,7 @@ void YoloObjectDetector::init()
   nodeHandle_.param("publishers/detection_image/latch", detectionImageLatch, true);
 
 //TODO
-  imageSubscriber_ = imageTransport_.subscribe(cameraTopicName, cameraQueueSize, &YoloObjectDetector::cameraCallback, this);    
+      
    
   objectPublisher_ = nodeHandle_.advertise<std_msgs::Int8>(objectDetectorTopicName,
                                                            objectDetectorQueueSize,
