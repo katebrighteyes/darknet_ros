@@ -25,6 +25,10 @@ $ vim launch/darknet_ros.launch +12
 
 default="$(find darknet_ros)/config/ros.yaml"/>
 
+$ vim launch/darknet_ros.launch +13
+
+default="$(find darknet_ros)/config/yolov2-tiny.yaml"
+
 # TODO 3.
 
 <src/YoloObjectDetector.cpp> 158 line
