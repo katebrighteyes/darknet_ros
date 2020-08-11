@@ -1,11 +1,11 @@
-GPU=0
-CUDNN=0
+GPU=1
+CUDNN=1
 OPENCV=0
 OPENMP=0
 DEBUG=0
 
 ARCH= -gencode arch=compute_30,code=sm_30 \
-      -gencode arch=compute_35,code=sm_35 \
+      -gencode arch=compute_72,code=sm_72 \
       -gencode arch=compute_62,code=[sm_62,compute_62] \
       -gencode arch=compute_53,code=[sm_53,compute_53]
 #      -gencode arch=compute_20,code=[sm_20,sm_21] \ This one is deprecated?
