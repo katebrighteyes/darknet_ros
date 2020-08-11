@@ -35,7 +35,18 @@ default="$(find darknet_ros)/config/yolov2-tiny.yaml"
 
 vim src/YoloObjectDetector.cpp +158
 
-  imageSubscriber_ = imageTransport_.subscribe(cameraTopicName, cameraQueueSize,                      &YoloObjectDetector::cameraCallback, this);
+  imageSubscriber_ = imageTransport_.subscribe(cameraTopicName, cameraQueueSize,
+                                               &YoloObjectDetector::cameraCallback, this);
+
+  objectPublisher_ = nodeHandle_.advertise<std_msgs::Int8>(objectDetectorTopicName,
+                                                           objectDetectorQueueSize,
+                                                           objectDetectorLatch);
+
+  boundingBoxesPublisher_ = nodeHandle_.advertise<darknet_ros_msgs::BoundingBoxes>(
+                                boundingBoxesTopicName, boundingBoxesQueueSize, boundingBoxesLatch);
+  detectionImagePublisher_ = nodeHandle_.advertise<sensor_msgs::Image>(detectionImageTopicName,
+                                                                       detectionImageQueueSize,
+                                                                       detectionImageLatch);
 
 # BUILD
 
